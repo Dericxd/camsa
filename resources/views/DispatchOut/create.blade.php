@@ -81,7 +81,7 @@
                                 {{--                                        <div--}}
                                 {{--                                            class="form-group bmd-form-group{{ $errors->has('productId') ? ' has-danger' : '' }} dropdown bootstrap-select ">--}}
                                 {{--                                            <label for="input-productId" class="bmd-label-floating">{{ __('') }}</label>--}}
-                                {{--                                            {!! Form::select('productId',$name,null,['class'=>"selectpicker show-tick ", $errors->has('status') ? ' is-invalid' : '' ,--}}
+                                {{--                                            {!! Form::select('productId',$name,null,['class'=>"selectpicker SProduct show-tick ", $errors->has('status') ? ' is-invalid' : '' ,--}}
                                 {{--                                            'title'=>'Seleccione un producto', 'required'=>'true', 'data-size'=>"5", 'id'=>'input-productId',--}}
                                 {{--                                            'aria-required'=>'true','data-style'=>'select-with-transition'] ) !!}--}}
                                 {{--                                            @if ($errors->has('productId'))--}}
@@ -138,7 +138,8 @@
                                 <!--    Boton para agregar un producto     -->
                                 <div class="col-md-9 text-right m-2">
                                     <a href="#" id="addProduct" class="btn btn-just-icon btn-round btn-info ">
-                                        <i class="material-icons">add_circle</i>
+{{--                                        <i class="material-icons">add_circle</i>--}}
+                                        <i class="material-icons">add_circle_outline</i>
                                     </a>
                                 </div>
                                 <!--    Boton para agregar un producto     -->
@@ -361,20 +362,25 @@
                     </div>
                 </div>
 
-              <div class="col-md-2">
-                {!! Form::label('precio', 'Precio', ['class' => "form-group col-form-label"]) !!}
-                    <input type="text" name="precio[]" value="${res.precie}" id="precio[${i}]" class="form-control precio${i}">
-              </div>
-              <div class="col-md-2">
-                {!! Form::label('newquantity', 'Cantidad', ['class' => "form-group col-form-label"]) !!}
-                    <input type="text" name="newquantity[]" id="newquantity[]" class="form-control newquantity${i}" onchange='AllTotal(${i})'>
-              </div>
 
-
-              <div class="col-md-2">
-                {!! Form::label('eliminar','Eliminar', ['class' => "form-group col-form-label"]) !!}
-                    <button class='btn btn-danger btn-sm' onclick="deleteRow(${i})">E</button>
+              <label class="col-sm-1 col-form-label "></label>
+              <div class="col-sm-2 mt-1 ">
+                <div class="form-group bmd-form-group{{ $errors->has('quantity') ? ' has-danger' : '' }} dropdown bootstrap-select">
+                    <label for="input-code" class="bmd-label-floating ">{{ __('Cantidad') }}</label>
+                    <input type="text" name="quantity[]" id="quantity[]" class="form-control quantity${i}
+                      {{ $errors->has('quantity') ? ' is-invalid' : '' }}" value="{{ old('quantity') }}" onchange=total(${i}) required="true" ">
+                      @if ($errors->has('quantity'))
+                        <span id="quantity-error" class="error text-danger"
+                          id="input-quantity"
+                          for="input-quantity">{{ $errors->first('quantity') }}</span>
+                        @endif
+                </div>
               </div>
+                <div class="col-md-2">
+                <button class='btn btn-just-icon btn-link btn-google ' onclick="deleteRow(${i})">
+                        <i class="material-icons">remove_circle</i>
+                    </button>
+                </div>
             `);
                     i++
                 });
