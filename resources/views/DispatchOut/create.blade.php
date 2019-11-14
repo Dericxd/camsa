@@ -25,6 +25,7 @@
                                     </div>
                                 </div>
 
+
                                 <!--     Codigo & Producto    -->
                                 <div class="row">
                                     <!--    Codigo    -->
@@ -72,82 +73,75 @@
 
 
                                 <!--    Producto & Cantidad & Presentacion     -->
-                                <div class="row">
+                                <div class="row mt-3 " id="productos">
 
-                                    <!--     Producto     -->
-                                    <label class="col-sm-1 col-form-label">&nbsp;</label>
-                                    <div class="col-sm-2">
-                                        <div
-                                            class="form-group bmd-form-group{{ $errors->has('productId') ? ' has-danger' : '' }} dropdown bootstrap-select ">
-                                            <label for="input-productId" class="bmd-label-floating">{{ __('') }}</label>
-                                            {!! Form::select('productId',$name,null,['class'=>"selectpicker show-tick ", $errors->has('status') ? ' is-invalid' : '' ,
-                                            'title'=>'Seleccione un producto', 'required'=>'true', 'data-size'=>"5", 'id'=>'input-productId',
-                                            'aria-required'=>'true','data-style'=>'select-with-transition'] ) !!}
-                                            @if ($errors->has('productId'))
-                                                <span id="productId-error" class="error text-danger"
-                                                      id="input-productId"
-                                                      for="input-productId">{{ $errors->first('productId') }}</span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <!--     Producto     -->
+                                {{--                                    <!--     Producto     -->--}}
+                                {{--                                    <label class="col-sm-1 col-form-label">&nbsp;</label>--}}
+                                {{--                                    <div class="col-sm-2">--}}
+                                {{--                                        <div--}}
+                                {{--                                            class="form-group bmd-form-group{{ $errors->has('productId') ? ' has-danger' : '' }} dropdown bootstrap-select ">--}}
+                                {{--                                            <label for="input-productId" class="bmd-label-floating">{{ __('') }}</label>--}}
+                                {{--                                            {!! Form::select('productId',$name,null,['class'=>"selectpicker show-tick ", $errors->has('status') ? ' is-invalid' : '' ,--}}
+                                {{--                                            'title'=>'Seleccione un producto', 'required'=>'true', 'data-size'=>"5", 'id'=>'input-productId',--}}
+                                {{--                                            'aria-required'=>'true','data-style'=>'select-with-transition'] ) !!}--}}
+                                {{--                                            @if ($errors->has('productId'))--}}
+                                {{--                                                <span id="productId-error" class="error text-danger"--}}
+                                {{--                                                      id="input-productId"--}}
+                                {{--                                                      for="input-productId">{{ $errors->first('productId') }}</span>--}}
+                                {{--                                            @endif--}}
+                                {{--                                        </div>--}}
+                                {{--                                    </div>--}}
+                                {{--                                    <!--     Producto     -->--}}
 
-                                    <!--     Presentacion del Producto     -->
-                                    <label class="col-sm-1 col-form-label "> </label>
-                                    <div class="col-sm-2">
-                                        <div
-                                            class="form-group bmd-form-group{{ $errors->has('presentationProduct') ? ' has-danger' : '' }} dropdown bootstrap-select ">
-                                            <label for="input-presentationProduct"
-                                                   class="bmd-label-floating">{{ __('') }}</label>
-                                            {!! Form::select('presentationProduct',[],null,['class'=>"selectpicker show-tick ", $errors->has('status') ? ' is-invalid' : '' ,
-                                            'title'=>'Seleccione la presentacion del producto', 'required'=>'true', 'id'=>'presentationProduct',
-                                             'data-size'=>"5", 'aria-required'=>'true','data-style'=>'select-with-transition']) !!}
-                                            @if ($errors->has('presentationProduct'))
-                                                <span id="presentationProduct-error" class="error text-danger"
-                                                      id="input-presentationProduct"
-                                                      for="input-presentationProduct">{{ $errors->first('presentationProduct') }}</span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <!--     Presentacion del Producto     -->
+                                {{--                                    <!--     Presentacion del Producto     -->--}}
+                                {{--                                    <label class="col-sm-1 col-form-label "> </label>--}}
+                                {{--                                    <div class="col-sm-2">--}}
+                                {{--                                        <div--}}
+                                {{--                                            class="form-group bmd-form-group{{ $errors->has('presentationProduct') ? ' has-danger' : '' }} dropdown bootstrap-select ">--}}
+                                {{--                                            <label for="input-presentationProduct"--}}
+                                {{--                                                   class="bmd-label-floating">{{ __('') }}</label>--}}
+                                {{--                                            {!! Form::select('presentationProduct',[],null,['class'=>"selectpicker show-tick ", $errors->has('status') ? ' is-invalid' : '' ,--}}
+                                {{--                                            'title'=>'Seleccione la presentacion del producto', 'required'=>'true', 'id'=>'presentationProduct',--}}
+                                {{--                                             'data-size'=>"5", 'aria-required'=>'true','data-style'=>'select-with-transition']) !!}--}}
+                                {{--                                            @if ($errors->has('presentationProduct'))--}}
+                                {{--                                                <span id="presentationProduct-error" class="error text-danger"--}}
+                                {{--                                                      id="input-presentationProduct"--}}
+                                {{--                                                      for="input-presentationProduct">{{ $errors->first('presentationProduct') }}</span>--}}
+                                {{--                                            @endif--}}
+                                {{--                                        </div>--}}
+                                {{--                                    </div>--}}
+                                {{--                                    <!--     Presentacion del Producto     -->--}}
 
-                                    <!--    Cantidad    -->
-                                    <label class="col-sm-1 col-form-label "> </label>
-                                    <div class="col-sm-2 mt-1 ">
-                                        <div
-                                            class="form-group bmd-form-group{{ $errors->has('quantity') ? ' has-danger' : '' }} dropdown bootstrap-select">
-                                            <label for="input-code"
-                                                   class="bmd-label-floating ">{{ __('Cantidad') }}</label>
-                                            <input type="text" name="quantity" id="input-quantity"
-                                                   class="form-control  {{ $errors->has('quantity') ? ' is-invalid' : '' }}"
-                                                   value="{{ old('quantity') }}"
-                                                   required="true" aria-required="true">
-                                            @if ($errors->has('quantity'))
-                                                <span id="quantity-error" class="error text-danger"
-                                                      id="input-quantity"
-                                                      for="input-quantity">{{ $errors->first('quantity') }}</span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <!--    Cantidad    -->
+                                {{--                                    <!--    Cantidad    -->--}}
+                                {{--                                    <label class="col-sm-1 col-form-label "> </label>--}}
+                                {{--                                    <div class="col-sm-2 mt-1 ">--}}
+                                {{--                                        <div--}}
+                                {{--                                            class="form-group bmd-form-group{{ $errors->has('quantity') ? ' has-danger' : '' }} dropdown bootstrap-select">--}}
+                                {{--                                            <label for="input-code"--}}
+                                {{--                                                   class="bmd-label-floating ">{{ __('Cantidad') }}</label>--}}
+                                {{--                                            <input type="text" name="quantity" id="input-quantity"--}}
+                                {{--                                                   class="form-control  {{ $errors->has('quantity') ? ' is-invalid' : '' }}"--}}
+                                {{--                                                   value="{{ old('quantity') }}"--}}
+                                {{--                                                   required="true" aria-required="true">--}}
+                                {{--                                            @if ($errors->has('quantity'))--}}
+                                {{--                                                <span id="quantity-error" class="error text-danger"--}}
+                                {{--                                                      id="input-quantity"--}}
+                                {{--                                                      for="input-quantity">{{ $errors->first('quantity') }}</span>--}}
+                                {{--                                            @endif--}}
+                                {{--                                        </div>--}}
+                                {{--                                    </div>--}}
+                                <!--    Cantidad    -->
 
                                 </div>
                                 <!--    Producto & Cantidad & Presentacion    -->
 
                                 <!--    Boton para agregar un producto     -->
-                                <div class="col-md-10 text-right ">
-                                    <a href="#" id="addProduct" class="btn btn-just-icon btn-round btn-info mr-5">
+                                <div class="col-md-9 text-right m-2">
+                                    <a href="#" id="addProduct" class="btn btn-just-icon btn-round btn-info ">
                                         <i class="material-icons">add_circle</i>
                                     </a>
                                 </div>
                                 <!--    Boton para agregar un producto     -->
-
-
-                                <!--     Campo agregado de productos     -->
-                                <div class="row" id="productos">
-
-                                </div>
-                                <!--      Campo agregado de productos    -->
 
 
                                 <!--     Fecha de salida & Total     -->
@@ -276,12 +270,14 @@
                                     </div>
                                     <!--     Producto     -->
                                 </div>
-                                <br/><br/>
 
-                                <div class="card-footer ml-auto mr-auto">
-                                    <button type="submit" class="btn btn-rose">Registrar</button>
-                                </div>
                             </div>
+                            <br/><br/>
+
+                            <div class="card-footer ml-auto mr-auto">
+                                <button type="submit" class="btn btn-rose">Registrar</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -292,11 +288,11 @@
 
 @section('js')
 
-    <script>
-        // $(document).ready(function() {
-        //     $('.SProduct').select2();
-        // });
 
+    <script>
+        $(document).ready(function () {
+            $('.SProduct').select2();
+        });
     </script>
 
     <script>
@@ -315,17 +311,80 @@
 
                     // $('#id').append(res.amount);
                     $('#input-presentationProduct').append(`
-                              <option value='${res.id}'>${res.presentation}</option>
-                         `);
-
-                    /*res.forEach(e => {
-                        $('#input-presentationProduct').append(`
-                             <option value='${e.id}'>${e.presentation}</option>
-                         `);
-                    });*/
+                        <option value='${res.id}'>${res.presentation}</option>
+                    `);
                 });
             });
         });
     </script>
+
+
+    {{--    para agregar mas producto--}}
+    <script>
+        let i = 1;
+
+        $('#addProduct').click(function (e) {
+
+            e.preventDefault();
+            $('#productos').append(`
+                <div class="col-md-12 row"  id='add${i}'>
+                    <label class="col-sm-1 col-form-label"></label>
+                    <div class="col-sm-2 mr-2">
+                        <div class="form-group bmd-form-group{{ $errors->has("productId") ? " has-danger" : "" }}">
+                            <label for="productId" class="bmd-label-floating">{{ __("") }}</label>
+                            {!! Form::select("productId[]",$name,null,["class"=>"form-control SProduct",
+                            "title"=>"Seleccione un producto", "required"=>true, "data-size"=>"5", "id"=>"productId" ] ) !!}
+                        </div>
+                    </div>
+
+
+
+                </div>
+            `);
+
+
+            $('#productId').change(function(){
+                let id = this.value;
+                $.get(`{{ url('/products') }}/${id}`, (res) => {
+                    console.log(res);
+                    $('#add'+i).append(`
+
+
+                    <label class="col-sm-1 col-form-label"></label>
+                    <div class="col-sm-2 mr-2">
+                        <div class="form-group bmd-form-group{{ $errors->has("productId") ? " has-danger" : "" }}">
+                            <label for="presentationProduct" class="bmd-label-floating">{{ __("") }}</label>
+                            <input type="text" name="presentationProduct[]" id="presentation"
+                                class="form-control  {{ $errors->has("presentation") ? " is-invalid" : "" }}"
+                                value="${res.presentation}" required=true" aria-required="true">
+
+                    </div>
+                </div>
+
+              <div class="col-md-2">
+                {!! Form::label('precio', 'Precio', ['class' => "form-group col-form-label"]) !!}
+                    <input type="text" name="precio[]" value="${res.precie}" id="precio[${i}]" class="form-control precio${i}">
+              </div>
+              <div class="col-md-2">
+                {!! Form::label('newquantity', 'Cantidad', ['class' => "form-group col-form-label"]) !!}
+                    <input type="text" name="newquantity[]" id="newquantity[]" class="form-control newquantity${i}" onchange='AllTotal(${i})'>
+              </div>
+
+
+              <div class="col-md-2">
+                {!! Form::label('eliminar','Eliminar', ['class' => "form-group col-form-label"]) !!}
+                    <button class='btn btn-danger btn-sm' onclick="deleteRow(${i})">E</button>
+              </div>
+            `);
+                    i++
+                });
+            })
+
+
+        });
+
+
+    </script>
+
 
 @endsection
