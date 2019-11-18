@@ -75,63 +75,6 @@
                                 <!--    Producto & Cantidad & Presentacion     -->
                                 <div class="row mt-3" id="productos">
 
-                                {{--                                    <!--     Producto     -->--}}
-                                {{--                                    <label class="col-sm-1 col-form-label">&nbsp;</label>--}}
-                                {{--                                    <div class="col-sm-2">--}}
-                                {{--                                        <div--}}
-                                {{--                                            class="form-group bmd-form-group{{ $errors->has('productId') ? ' has-danger' : '' }} dropdown bootstrap-select ">--}}
-                                {{--                                            <label for="input-productId" class="bmd-label-floating">{{ __('') }}</label>--}}
-                                {{--                                            {!! Form::select('productId',$name,null,['class'=>"selectpicker SProduct show-tick ", $errors->has('status') ? ' is-invalid' : '' ,--}}
-                                {{--                                            'title'=>'Seleccione un producto', 'required'=>'true', 'data-size'=>"5", 'id'=>'input-productId',--}}
-                                {{--                                            'aria-required'=>'true','data-style'=>'select-with-transition'] ) !!}--}}
-                                {{--                                            @if ($errors->has('productId'))--}}
-                                {{--                                                <span id="productId-error" class="error text-danger"--}}
-                                {{--                                                      id="input-productId"--}}
-                                {{--                                                      for="input-productId">{{ $errors->first('productId') }}</span>--}}
-                                {{--                                            @endif--}}
-                                {{--                                        </div>--}}
-                                {{--                                    </div>--}}
-                                {{--                                    <!--     Producto     -->--}}
-
-                                {{--                                    <!--     Presentacion del Producto     -->--}}
-                                {{--                                    <label class="col-sm-1 col-form-label "> </label>--}}
-                                {{--                                    <div class="col-sm-2">--}}
-                                {{--                                        <div--}}
-                                {{--                                            class="form-group bmd-form-group{{ $errors->has('presentationProduct') ? ' has-danger' : '' }} dropdown bootstrap-select ">--}}
-                                {{--                                            <label for="input-presentationProduct"--}}
-                                {{--                                                   class="bmd-label-floating">{{ __('') }}</label>--}}
-                                {{--                                            {!! Form::select('presentationProduct',[],null,['class'=>"selectpicker show-tick ", $errors->has('status') ? ' is-invalid' : '' ,--}}
-                                {{--                                            'title'=>'Seleccione la presentacion del producto', 'required'=>'true', 'id'=>'presentationProduct',--}}
-                                {{--                                             'data-size'=>"5", 'aria-required'=>'true','data-style'=>'select-with-transition']) !!}--}}
-                                {{--                                            @if ($errors->has('presentationProduct'))--}}
-                                {{--                                                <span id="presentationProduct-error" class="error text-danger"--}}
-                                {{--                                                      id="input-presentationProduct"--}}
-                                {{--                                                      for="input-presentationProduct">{{ $errors->first('presentationProduct') }}</span>--}}
-                                {{--                                            @endif--}}
-                                {{--                                        </div>--}}
-                                {{--                                    </div>--}}
-                                {{--                                    <!--     Presentacion del Producto     -->--}}
-
-                                {{--                                    <!--    Cantidad    -->--}}
-                                {{--                                    <label class="col-sm-1 col-form-label "> </label>--}}
-                                {{--                                    <div class="col-sm-2 mt-1 ">--}}
-                                {{--                                        <div--}}
-                                {{--                                            class="form-group bmd-form-group{{ $errors->has('quantity') ? ' has-danger' : '' }} dropdown bootstrap-select">--}}
-                                {{--                                            <label for="input-code"--}}
-                                {{--                                                   class="bmd-label-floating ">{{ __('Cantidad') }}</label>--}}
-                                {{--                                            <input type="text" name="quantity" id="input-quantity"--}}
-                                {{--                                                   class="form-control  {{ $errors->has('quantity') ? ' is-invalid' : '' }}"--}}
-                                {{--                                                   value="{{ old('quantity') }}"--}}
-                                {{--                                                   required="true" aria-required="true">--}}
-                                {{--                                            @if ($errors->has('quantity'))--}}
-                                {{--                                                <span id="quantity-error" class="error text-danger"--}}
-                                {{--                                                      id="input-quantity"--}}
-                                {{--                                                      for="input-quantity">{{ $errors->first('quantity') }}</span>--}}
-                                {{--                                            @endif--}}
-                                {{--                                        </div>--}}
-                                {{--                                    </div>--}}
-                                <!--    Cantidad    -->
-
                                 </div>
                                 <!--    Producto & Cantidad & Presentacion    -->
 
@@ -153,15 +96,15 @@
                                         <!--    Total    -->
                                         <div
                                             class="form-group bmd-form-group{{ $errors->has('total') ? ' has-danger' : '' }} dropdown bootstrap-select">
-                                            <label for="input-total"
+                                            <label for="total"
                                                    class="bmd-label-floating">{{ __('Total') }}</label>
-                                            <input type="text" name="total" id="input-total"
+                                            <input type="text" name="total" id="total"
                                                    class="form-control{{ $errors->has('total') ? ' is-invalid' : '' }}"
                                                    value="{{ old('total') }}"
                                                    required="true" aria-required="true">
                                             @if ($errors->has('total'))
                                                 <span id="total-error" class="error text-danger"
-                                                      id="input-total"
+                                                      id="total"
                                                       for="input-total">{{ $errors->first('total') }}</span>
                                             @endif
                                         </div>
@@ -178,7 +121,7 @@
                                             <input type="text" name="dateOut" id="input-dateOut"
                                                    class="form-control {{ $errors->has('dateOut') ? ' is-invalid' : '' }}"
                                                    value="{{ old('dateOut', $day) }}"
-                                                   required="true" aria-required="true" />
+                                                   required="true" aria-required="true"/>
                                             @if ($errors->has('dateOut'))
                                                 <span id="dateOut-error" class="error text-danger"
                                                       id="input-dateOut"
@@ -201,8 +144,8 @@
                                             <label for="input-observation"
                                                    class="bmd-label-floating">{{ __('Observacion') }}</label>
                                             <textarea cols="2" rows="2" name="observation" id="input-observation"
-                                                   class="form-control{{ $errors->has('observation') ? ' is-invalid' : '' }}"
-                                                   value="{{ old('observation') }}"
+                                                      class="form-control{{ $errors->has('observation') ? ' is-invalid' : '' }}"
+                                                      value="{{ old('observation') }}"
                                                       required="true"></textarea>
                                             @if ($errors->has('observation'))
                                                 <span id="total-error" class="error text-danger"
@@ -221,8 +164,8 @@
                                             <label for="input-description"
                                                    class="bmd-label-floating">{{ __('Fecha') }}</label>
                                             <textarea type="text" name="description" id="input-description"
-                                                   class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}"
-                                                   value="{{ old('ddescription') }}"
+                                                      class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}"
+                                                      value="{{ old('ddescription') }}"
                                                       required="true" aria-required="true"></textarea>
                                             @if ($errors->has('description'))
                                                 <span id="description-error" class="error text-danger"
@@ -254,39 +197,39 @@
 @section('js')
 
 
-{{--    <script>--}}
-{{--        $(document).ready(function () {--}}
-{{--            $('.SProduct').select2();--}}
-{{--        });--}}
-{{--    </script>--}}
+    {{--    <script>--}}
+    {{--        $(document).ready(function () {--}}
+    {{--            $('.SProduct').select2();--}}
+    {{--        });--}}
+    {{--    </script>--}}
 
 
 
     {{--    para agregar mas producto--}}
     <script>
-            let i = 1;
+        let i = 1;
 
-$('#addProduct').click(function (e) {
+        $('#addProduct').click(function (e) {
 
-    e.preventDefault();
-    $('#productos').append(`
+            e.preventDefault();
+            $('#productos').append(`
         <div class="col-md-12 row"  id='add${i}'>
             <label class="col-sm-1 col-form-label"></label>
             <div class="col-sm-2 mr-2">
                 <div class="form-group bmd-form-group{{ $errors->has("productId") ? " has-danger" : "" }}">
                     <label for="productId" class="bmd-label-floating">{{ __("") }}</label>
                     {!! Form::select("productId[]",$name,null,["class"=>"form-control SProduct",
-                    "title"=>"Seleccione un producto productId", "placeholder"=>"selecione Producto","required"=>true, "data-size"=>"5", "id"=>"productId`+i+`" ] ) !!} 
-                </div>
+                    "title"=>"Seleccione un producto productId", "placeholder"=>"selecione Producto","required"=>true, "data-size"=>"5", "id"=>"productId`+i+`" ] ) !!}
             </div>
         </div>
-    `);
+    </div>
+`);
 
 
-    $('#productId'+i).change(function () {
-        let id = this.value;
-        $.get(`{{ url('/products') }}/${id}`, (res) => {
-            $('#add'+i).append(`
+            $('#productId' + i).change(function () {
+                let id = this.value;
+                $.get(`{{ url('/products') }}/${id}`, (res) => {
+                    $('#add' + i).append(`
                 <label class="col-sm-1 col-form-label"></label>
                 <div class="col-sm-2 mr-2">
                     <div class="form-group bmd-form-group{{ $errors->has("productId") ? " has-danger" : "" }}">
@@ -301,27 +244,35 @@ $('#addProduct').click(function (e) {
                 <div class="col-sm-2 mt-1 ">
                     <div class="form-group bmd-form-group{{ $errors->has('quantity') ? ' has-danger' : '' }} ">
                         <label for="quantity" class="bmd-label-floating ">{{ __('Cantidad') }}</label>
-                        <input type="text" name="quantity[]" id="quantity[${i}]" class="form-control quantity${i}
+                        <input type="text" onchange='AllTotal(${i})' name="quantity[]" id="quantity[${i}]" class="form-control quantity${i}
                         {{ $errors->has('quantity') ? ' is-invalid' : '' }}" value="{{ old('quantity') }}" required="true" ">
                     </div>
                 </div>
-                
+
                 <div class="col-md-2">
                     <button class='btn btn-just-icon btn-link btn-google ' onclick="deleteRow(${i})">
                         <i class="material-icons">remove_circle</i>
                     </button>
                 </div>
             `);
-            console.log(res,i);
-            i++;
+                    console.log(res, i);
+                    i++;
+                });
+            })
         });
-    })
-});
 
-function deleteRow(e){
-    $('#add'+e).html('');
-    // subTotal();
-}
+        function AllTotal(e) {
+            let cantidad = $('.quantity' + e).val();
+            let total = 0;
+            $
+            console.log(cantidad);
+            $('#total' + e).val(total);
+        }
+
+        function deleteRow(e) {
+            $('#add' + e).html('');
+            // subTotal();
+        }
     </script>
 
 
