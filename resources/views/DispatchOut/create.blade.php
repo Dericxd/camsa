@@ -264,75 +264,64 @@
 
     {{--    para agregar mas producto--}}
     <script>
-        let i = 1;
+            let i = 1;
 
-        $('#addProduct').click(function (e) {
+$('#addProduct').click(function (e) {
 
-            e.preventDefault();
-            $('#productos').append(`
-                <div class="col-md-12 row"  id='add${i}'>
-                    <label class="col-sm-1 col-form-label"></label>
-                    <div class="col-sm-2 mr-2">
-                        <div class="form-group bmd-form-group{{ $errors->has("productId") ? " has-danger" : "" }}">
-                            <label for="productId" class="bmd-label-floating">{{ __("") }}</label>
-                            {!! Form::select("productId[]",$name,null,["class"=>"form-control SProduct",
-                            "title"=>"Seleccione un producto productId", "placeholder"=>"selecione Producto","required"=>true, "data-size"=>"5", "id"=>"productId" ] ) !!}
+    e.preventDefault();
+    $('#productos').append(`
+        <div class="col-md-12 row"  id='add${i}'>
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-2 mr-2">
+                <div class="form-group bmd-form-group{{ $errors->has("productId") ? " has-danger" : "" }}">
+                    <label for="productId" class="bmd-label-floating">{{ __("") }}</label>
+                    {!! Form::select("productId[]",$name,null,["class"=>"form-control SProduct",
+                    "title"=>"Seleccione un producto productId", "placeholder"=>"selecione Producto","required"=>true, "data-size"=>"5", "id"=>"productId`+i+`" ] ) !!} 
+                </div>
             </div>
         </div>
+    `);
 
 
-
-    </div>
-`);
-
-
-            $('#productId').change(function () {
-                let id = this.value;
-                $.get(`{{ url('/products') }}/${id}`, (res) => {
-                    $('#add'+i).append(`
-
-
-                    <label class="col-sm-1 col-form-label"></label>
-                    <div class="col-sm-2 mr-2">
-                        <div class="form-group bmd-form-group{{ $errors->has("productId") ? " has-danger" : "" }}">
-                            <label for="presentationProduct" class="bmd-label-floating">{{ __("") }}</label>
-                            <input type="text" name="presentationProduct[]" id="presentation[${i}]"
-                                class="form-control presentationProduct${i} {{ $errors->has("presentationProduct") ? " is-invalid" : "" }}"
-                                value="${res.presentation}" required=true" aria-required="true">
-
+    $('#productId'+i).change(function () {
+        let id = this.value;
+        $.get(`{{ url('/products') }}/${id}`, (res) => {
+            $('#add'+i).append(`
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-2 mr-2">
+                    <div class="form-group bmd-form-group{{ $errors->has("productId") ? " has-danger" : "" }}">
+                        <label for="presentationProduct" class="bmd-label-floating">{{ __("") }}</label>
+                        <input type="text" name="presentationProduct[]" id="presentation[${i}]"
+                            class="form-control presentationProduct${i} {{ $errors->has("presentationProduct") ? " is-invalid" : "" }}"
+                            value="${res.presentation}" required=true" aria-required="true">
                     </div>
                 </div>
 
-
-              <label class="col-sm-1 col-form-label "></label>
-              <div class="col-sm-2 mt-1 ">
-                <div class="form-group bmd-form-group{{ $errors->has('quantity') ? ' has-danger' : '' }} ">
-                    <label for="quantity" class="bmd-label-floating ">{{ __('Cantidad') }}</label>
-                    <input type="text" name="quantity[]" id="quantity[${i}]" class="form-control quantity${i}
-                      {{ $errors->has('quantity') ? ' is-invalid' : '' }}" value="{{ old('quantity') }}" required="true" ">
-
+                <label class="col-sm-1 col-form-label "></label>
+                <div class="col-sm-2 mt-1 ">
+                    <div class="form-group bmd-form-group{{ $errors->has('quantity') ? ' has-danger' : '' }} ">
+                        <label for="quantity" class="bmd-label-floating ">{{ __('Cantidad') }}</label>
+                        <input type="text" name="quantity[]" id="quantity[${i}]" class="form-control quantity${i}
+                        {{ $errors->has('quantity') ? ' is-invalid' : '' }}" value="{{ old('quantity') }}" required="true" ">
                     </div>
-                  </div>
-                    <div class="col-md-2">
+                </div>
+                
+                <div class="col-md-2">
                     <button class='btn btn-just-icon btn-link btn-google ' onclick="deleteRow(${i})">
                         <i class="material-icons">remove_circle</i>
                     </button>
                 </div>
             `);
-                    console.log(res,i);
-                    i++;
-                });
-            })
-
-
+            console.log(res,i);
+            i++;
         });
+    })
+});
 
-
-        function deleteRow(e){
-            $('#add'+e).html('');
-            // subTotal();
-        }
-
+function deleteRow(e){
+    $('#add'+e).html('');
+    // subTotal();
+}
     </script>
 
 
