@@ -50,7 +50,8 @@ class DispatchOutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $al = new DispatchOut($request->all());
+        dd($al);
     }
 
     /**

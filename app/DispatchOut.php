@@ -11,13 +11,13 @@ class DispatchOut extends Model
 
     protected $fillable = [
         'description',
-        'productId*',
-        'quantity*',
-        'presentationProduct*',
+        'productId',
+        'quantity',
+        'presentationProduct',
         'total',
-        'code*',
-        'dateOut*',
-        'responsible*',
+        'code',
+        'dateOut',
+        'responsible',
         'observation'
     ];
 

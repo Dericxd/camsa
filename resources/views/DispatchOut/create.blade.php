@@ -169,20 +169,20 @@
                                     <!--    Total    -->
 
                                     <!--     Fecha de salidad     -->
-                                    <label class="col-sm-1 col-form-label padding-horiz"></label>
+                                    <label class="col-sm-1 col-form-label "></label>
                                     <div class="col-md-5">
                                         <div
-                                            class="form-group bmd-form-group{{ $errors->has('presentationProduct') ? ' has-danger' : '' }} dropdown bootstrap-select ">
-                                            <label for="input-code"
-                                                   class="bmd-label-floating">{{ __('Codigo') }}</label>
-                                            <input type="text" name="dateOut" id="input-code"
-                                                   class="form-control{{ $errors->has('code') ? ' is-invalid' : '' }}"
+                                            class="form-group bmd-form-group{{ $errors->has('dateOut') ? ' has-danger' : '' }} dropdown bootstrap-select ">
+                                            <label for="input-dateOut"
+                                                   class="bmd-label-floating">{{ __('Fecha') }}</label>
+                                            <input type="text" name="dateOut" id="input-dateOut"
+                                                   class="form-control {{ $errors->has('dateOut') ? ' is-invalid' : '' }}"
                                                    value="{{ old('dateOut', $day) }}"
-                                                   required="true" aria-required="true">
-                                            @if ($errors->has('presentationProduct'))
-                                                <span id="presentationProduct-error" class="error text-danger"
-                                                      id="input-presentationProduct"
-                                                      for="input-presentationProduct">{{ $errors->first('presentationProduct') }}</span>
+                                                   required="true" aria-required="true" />
+                                            @if ($errors->has('dateOut'))
+                                                <span id="dateOut-error" class="error text-danger"
+                                                      id="input-dateOut"
+                                                      for="input-dateOut">{{ $errors->first('dateOut') }}</span>
                                             @endif
                                         </div>
                                     </div>
@@ -190,87 +190,51 @@
                                 </div>
                                 <!--     Fecha de salida & Total     -->
 
-                                <!--    Tipo    -->
-                                <div class="row">
-                                    <label class="col-sm-2 col-form-label"> </label>
-                                    <div class="col-sm-7">
+
+                                <!--     Observacion & Descripcion     -->
+                                <div class="row mt-2">
+                                    <!--    observation   -->
+                                    <label class="col-sm-1 col-form-label"></label>
+                                    <div class="col-sm-5">
                                         <div
-                                            class="form-group bmd-form-group{{ $errors->has('type') ? ' has-danger' : '' }} ">
-                                            <label for="input-type"
-                                                   class="bmd-label-floating">{{ __('Tipo de transporte') }}</label>
-                                            <input type="text" name="type" id="input-type"
-                                                   class="form-control{{ $errors->has('type') ? ' is-invalid' : '' }}"
-                                                   value="{{ old('type') }}"
-                                                   required="true" aria-required="true">
-                                            @if ($errors->has('type'))
-                                                <span id="type-error" class="error text-danger"
-                                                      id="input-type"
-                                                      for="input-type">{{ $errors->first('type') }}</span>
+                                            class="form-group bmd-form-group{{ $errors->has('observation') ? ' has-danger' : '' }} dropdown bootstrap-select">
+                                            <label for="input-observation"
+                                                   class="bmd-label-floating">{{ __('Observacion') }}</label>
+                                            <textarea cols="2" rows="2" name="observation" id="input-observation"
+                                                   class="form-control{{ $errors->has('observation') ? ' is-invalid' : '' }}"
+                                                   value="{{ old('observation') }}"
+                                                      required="true"></textarea>
+                                            @if ($errors->has('observation'))
+                                                <span id="total-error" class="error text-danger"
+                                                      id="input-observation"
+                                                      for="input-observation">{{ $errors->first('observation') }}</span>
                                             @endif
                                         </div>
                                     </div>
-                                </div>
-                                <!--    Tipo    -->
+                                    <!--    Observacion    -->
 
-                                <!--    Placa    -->
-                                <div class="row">
-                                    <label class="col-sm-2 col-form-label"> </label>
-                                    <div class="col-sm-7">
+                                    <!--     Descripcion     -->
+                                    <label class="col-sm-1 col-form-label padding-horiz"></label>
+                                    <div class="col-md-5">
                                         <div
-                                            class="form-group bmd-form-group{{ $errors->has('plate') ? ' has-danger' : '' }} ">
-                                            <label for="input-plate"
-                                                   class="bmd-label-floating">{{ __('plate') }}</label>
-                                            <input type="text" name="plate" id="input-plate"
-                                                   class="form-control{{ $errors->has('plate') ? ' is-invalid' : '' }}"
-                                                   value="{{ old('plate') }}"
-                                                   required="true" aria-required="true">
-                                            @if ($errors->has('plate'))
-                                                <span id="plate-error" class="error text-danger"
-                                                      id="input-plate"
-                                                      for="input-plate">{{ $errors->first('plate') }}</span>
+                                            class="form-group bmd-form-group{{ $errors->has('description') ? ' has-danger' : '' }} dropdown bootstrap-select ">
+                                            <label for="input-description"
+                                                   class="bmd-label-floating">{{ __('Fecha') }}</label>
+                                            <textarea type="text" name="description" id="input-description"
+                                                   class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}"
+                                                   value="{{ old('ddescription') }}"
+                                                      required="true" aria-required="true"></textarea>
+                                            @if ($errors->has('description'))
+                                                <span id="description-error" class="error text-danger"
+                                                      id="input-description"
+                                                      for="input-description">{{ $errors->first('description') }}</span>
                                             @endif
                                         </div>
                                     </div>
+                                    <!--     observation     -->
                                 </div>
-                                <!--    Placa    -->
+                                <!--     Fecha de salida & Total     -->
 
-                                <div class="row">
-                                    <!--    Codigo    -->
-                                    <label class="col-sm-2 col-form-label"> </label>
-                                    <div class="col-sm-7">
-                                        <div
-                                            class="form-group bmd-form-group{{ $errors->has('driverId') ? ' has-danger' : '' }} dropdown bootstrap-select">
-                                            <label for="input-driverId"
-                                                   class="bmd-label-floating">{{ __('Codigo') }}</label>
-                                            <input type="text" name="code" id="input-code"
-                                                   class="form-control{{ $errors->has('code') ? ' is-invalid' : '' }}"
-                                                   value="{{ old('code') }}"
-                                                   required="true" aria-required="true">
-                                            @if ($errors->has('driverId'))
-                                                <span id="driverId-error" class="error text-danger"
-                                                      id="input-driverId"
-                                                      for="input-driverId">{{ $errors->first('driverId') }}</span>
-                                            @endif
-                                        </div>
-                                        <!--    Codigo    -->
-
-                                        <!--     Producto     -->
-                                        <label class="col-sm-4 col-form-label padding-horiz">&nbsp;</label>
-                                        <div
-                                            class="form-group col-md-4 bmd-form-group{{ $errors->has('status') ? ' has-danger' : '' }} dropdown bootstrap-select ">
-                                            <label for="input-status"
-                                                   class="bmd-label-floating">{{ __('') }}</label>
-                                            {!! Form::select('status',$presentation,null,['class'=>"selectpicker show-tick ", $errors->has('status') ? ' is-invalid' : '' ,
-                                            'title'=>'estatus del camion', 'required'=>'true', 'data-size'=>"5", 'aria-required'=>'true','data-style'=>'select-with-transition']  ,['id'=>'input-status']) !!}
-                                            @if ($errors->has('status'))
-                                                <span id="status-error" class="error text-danger"
-                                                      id="input-status"
-                                                      for="input-status">{{ $errors->first('status') }}</span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <!--     Producto     -->
-                                </div>
 
                             </div>
                             <br/><br/>
