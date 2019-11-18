@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Status;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -26,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $status = Product::orderBy('status','DESC')->pluck('status','status');
+        $status = Status::pluck('name','name');
 
         return view('Product.create')
             ->with('statu',$status);
@@ -40,9 +41,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new Product($request->all());
-        $product->save();
-
+        Product::create($request->all());
         return redirect()->route('products.index')->withStatus(__('Producto guardado sastifactoria.'));
     }
 
@@ -55,7 +54,6 @@ class ProductController extends Controller
     public function show($id)
     {
         return $products = Product::find($id);
-        //return view('Product.show')->with('product',$products);
     }
 
     /**
@@ -67,7 +65,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $products = Product::find($id);
-        $status = Product::orderBy('status','DESC')->pluck('status','status');
+        $status = Status::pluck('name','name');
 
         return view('Product.edit')
             ->with('statu',$status)
